@@ -1,0 +1,12 @@
+<div class="popup-backdrop" *ngIf="isVisible">
+    <div class="popup-content">
+      <span class="close" (click)="closePopup()">&times;</span>
+      <h2>Cadastro de Email</h2>
+      <form>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="email" required>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  

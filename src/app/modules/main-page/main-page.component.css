@@ -1,0 +1,83 @@
+.header{
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15.73px;
+    text-align: right;
+    align-items: center; 
+    border: solid 3px #000000 ;
+}
+
+.header img{
+    width: 18px;
+    height: 17px;
+    padding-left: 2px;
+    align-items: center;
+
+}
+
+a {
+    display: inline-flex;
+  }
+
+.icones{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+
+}
+
+.titulo, .titulo h1 {
+    background-color: #2A8168;
+    margin: 0px;
+    font-family: 'Koulen';
+    color: #ffffff;
+    font-size: 28px; 
+}
+
+.titulo {
+    height: 51px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    border: solid #000000 1px;
+}
+
+.opcoes{
+    display: flex; 
+    justify-content: center !important;
+    border-bottom: solid black 1PX ;
+}
+
+button{
+    background-color: #2A8168;
+    color: #ffffff;
+}
+
+select{
+    border: none;
+    margin-right: 15px;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column; /* Alinha os elementos em coluna */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    margin-bottom: -1.25em;
+}
+
+.filters-container {
+    display: flex;
+    gap: 16px; /* Espaçamento entre os elementos */
+    align-self: center; /* Alinha os itens verticalmente no centro */
+}
+
+.footer{
+    border-style: solid;
+    border-color: #000000;
+    border-width: 0px 1px 1px 1px;
+
+}
+

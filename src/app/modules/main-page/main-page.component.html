@@ -1,0 +1,56 @@
+  <div class="container-fluid">
+    <div class="header d-flex justify-content-end align-items-center bg-dark p-2">
+      <div class="icones">
+        <span>Contatos: </span>
+        <a href="https://www.facebook.com" target="_blank" class="text-white mx-1">
+          <img src="assets/icons/facebookIcon.png" alt="Facebook" class="icon-img">
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="text-white mx-1">
+          <img src="assets/icons/instagramIcon.png" alt="Instagram" class="icon-img">
+        </a>
+        <a href="https://wa.me/seunumerodetelefone" target="_blank" class="text-white mx-1">
+          <img src="assets/icons/whatsappIcon.png" alt="WhatsApp" class="icon-img">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="titulo text-center">
+    <h1>SENAC CRAWLERS</h1>
+  </div>
+  <div class="opcoes">
+    <div class="filters-container d-flex justify-content-between">
+      <mat-form-field class="no-padding" appearance="fill" style="flex: 1; margin-right: 10px; ">
+        <mat-select [(ngModel)]="selectedBanca">
+          <mat-option value="" disabled>BANCA</mat-option>
+          <mat-option *ngFor="let banca of bancas" [value]="banca">{{banca}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="no-padding" appearance="fill" style="flex: 1; margin-right: 10px;">
+        <mat-select [(ngModel)]="selectedCategoria">
+          <mat-option value="" disabled>CATEGORIA</mat-option>
+          <mat-option *ngFor="let categoria of categorias" [value]="categoria">{{categoria}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="no-padding" appearance="fill" style="flex: 1; margin-right: 10px;">
+        <mat-select [(ngModel)]="selectedEstado">
+          <mat-option value="" disabled>ESTADO</mat-option>
+          <mat-option *ngFor="let estado of estados" [value]="estado">{{estado}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="no-padding" appearance="fill" style="flex: 2;">
+        <input matInput placeholder="Buscar por nome do projeto, banca ou região." class="search-input">
+      </mat-form-field>
+      <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn" style="margin: 10px 0px 0px 10px; height: 40px;">CONSULTAR</button>
+    </div>
+  </div>
+  <br>
+  <div class="footer">
+    <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn" style="margin: 10px 0px 0px 10px; height: 40px;">VEJA MAIS</button>
+    <button (click)="openClosePopup()" style="margin-bottom: 20px;" 
+    mat-raised-button class="consultar-btn" 
+    style="margin: 10px 0px 0px 10px; height: 40px;">RECEBER EDITAIS EM PRIMEIRA MÃO</button>
+    <app-email-popup *ngIf="isPopupVisible"></app-email-popup>
+  </div>
