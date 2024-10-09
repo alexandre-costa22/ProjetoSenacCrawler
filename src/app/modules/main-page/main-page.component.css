@@ -51,9 +51,23 @@ a {
     border-bottom: solid black 1PX ;
 }
 
-button{
+.vejaMais{
     background-color: #2A8168;
     color: #ffffff;
+}
+
+.receberEmail{
+    display: flex !important;
+    justify-content: flex-end !important;
+}
+
+.description{
+    display: grid;
+}
+
+.main{
+    border: solid #000000 1px;
+    padding: 20px;
 }
 
 select{
@@ -78,6 +92,7 @@ select{
     border-style: solid;
     border-color: #000000;
     border-width: 0px 1px 1px 1px;
+    display: flex;
 
 }
 

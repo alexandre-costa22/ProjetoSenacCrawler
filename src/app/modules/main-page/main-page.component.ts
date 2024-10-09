@@ -1,5 +1,5 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -8,7 +8,8 @@ import { MatSelectModule   } from '@angular/material/select';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule    } from '@angular/material/input';
 import { EmailPopupComponent } from '../register-user/email-popup/email-popup.component';
-import { TmplAstBoundAttribute } from '@angular/compiler';
+import { PopupService } from '../../services/email-popup.service';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @Component({
@@ -24,11 +25,18 @@ import { TmplAstBoundAttribute } from '@angular/compiler';
     MatInputModule,
     EmailPopupComponent,
     NgIf,
+    MatDialogModule,
   ],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent {
+
+  constructor(private popupService: PopupService) {}
+
+  openPopup() {
+    this.popupService.openPopup();
+  }
 
   categorias: string[] = ['Cultura', 'Educação', 'Tecnologia'];
   bancas: string[] = ['FINEP'];
@@ -38,16 +46,4 @@ export class MainPageComponent {
   selectedBanca: string = '';
   selectedCategoria: string = '';
   selectedEstado: string = '';
-
-  isPopupVisible = false
-
-  openClosePopup() {
-    if(this.isPopupVisible = false){
-        this.isPopupVisible = true
-      console.log(this.isPopupVisible)
-    } else if (this.isPopupVisible = true){
-      this.isPopupVisible = false
-      console.log(this.isPopupVisible)
-    }
-  }
 }
