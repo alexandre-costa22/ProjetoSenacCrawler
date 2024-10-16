@@ -17,7 +17,12 @@ button:hover{
 .cadastro{
   color: white;
   background-color: #2A8168;
-  ;
+}
+
+.sucesso{
+  display: flex;
+  justify-content: center;
+  
 }
 
 .botaoFechar{
