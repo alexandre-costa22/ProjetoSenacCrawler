@@ -19,27 +19,12 @@
 </div>
 <div class="opcoes">
   <div class="filters-container d-flex justify-content-between">
-    <mat-form-field class="no-padding" appearance="fill" style="flex: 1; margin-right: 10px; ">
+    <mat-form-field class="no-padding" appearance="fill" style="flex: 1; margin-right: 10px;">
       <mat-select [(ngModel)]="selectedBanca">
         <mat-option value="" disabled>BANCA</mat-option>
         <mat-option *ngFor="let banca of bancas" [value]="banca">{{banca}}</mat-option>
       </mat-select>
     </mat-form-field>
-
-    <!-- <mat-form-field class="no-padding" appearance="fill" style="flex: 1; margin-right: 10px;">
-      <mat-select [(ngModel)]="selectedCategoria">
-        <mat-option value="" disabled>CATEGORIA</mat-option>
-        <mat-option *ngFor="let categoria of categorias" [value]="categoria">{{categoria}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field class="no-padding" appearance="fill" style="flex: 1; margin-right: 10px;">
-      <mat-select [(ngModel)]="selectedEstado">
-        <mat-option value="" disabled>ESTADO</mat-option>
-        <mat-option *ngFor="let estado of estados" [value]="estado">{{estado}}</mat-option>
-      </mat-select>
-    </mat-form-field> -->
-
     <mat-form-field class="no-padding" appearance="fill" style="flex: 2;">
       <input matInput placeholder="Buscar por nome do projeto, banca ou região." class="search-input">
     </mat-form-field>
@@ -48,178 +33,48 @@
   </div>
 </div>
 <br>
-
-<div class="main">
-  <h2>
-    Edital de Apoio à Inovação FAPESC nº 01/2023
-  </h2>
-  <br>
-  <b><span>Descrição:</span></b>
-  <article>
-    "Apoio a projetos inovadores no Estado de Santa Catarina, promovendo o desenvolvimento tecnológico local."
-  </article>
-  <br>
-  <div class="description">
-    <div>
-      <b><span>Valor do edital: </span></b><span>R$ 25.000,00</span>
+<div class="aqui">
+  <div *ngFor="let edital of paginatedEditais" class="main">
+    <h2>{{ edital.titulo }}</h2>
+    <br>
+    <b><span>Descrição:</span></b>
+    <article>
+      "{{ edital.descricao }}"
+    </article>
+    <br>
+    <div class="description">
+      <div>
+        <b><span>Banca:</span></b><span>{{ edital.nome_banca }}</span>
+      </div>
+      <br>
+      <div>
+        <b><span>Valor do edital: </span></b><span>R$ {{ edital.valor }}</span>
+      </div>
+      <br>
+      <div>
+        <b><span>Validade:</span></b>
+        <span>{{ edital.vencimento | date: 'dd/MM/yyyy' }}</span>
+      </div>
     </div>
     <br>
-    <div>
-      <b><span>Categoria: </span></b><span>Tecnologia</span>
-    </div>
-    <br>
-    <div>
-      <b><span>Validade:</span></b>
-      <span>01/12/2023</span>
-      <b><span style="padding-left: 70px;">UF:</span></b>
-      <span>SC</span>
-    </div>
-  </div>
-
-</div>
-<div class="footer">
-  <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais"
-    style="margin: 10px 0px 0px 30px; height: 40px;">VEJA MAIS</button>
-</div>
-<br>
-<hr>
-<div class="main">
-  <h2>
-    Edital de Fomento à Pesquisa CNPq nº 05/2023
-  </h2>
-  <br>
-  <b><span>Descrição:</span></b>
-  <article>
-    "O CNPq convida pesquisadores a submeterem propostas para projetos que contribuam com avanços científicos no Brasil."
-  </article>
-  <br>
-  <div class="description">
-    <div>
-      <b><span>Valor do edital: </span></b><span>R$ 30.000,00</span>
-    </div>
-    <br>
-    <div>
-      <b><span>Categoria: </span></b><span>Pesquisa Científica</span>
-    </div>
-    <br>
-    <div>
-      <b><span>Validade:</span></b>
-      <span>30/11/2023</span>
-      <b><span style="padding-left: 70px;">UF:</span></b>
-      <span>DF</span>
-    </div>
-  </div>
-
-</div>
-<div class="footer">
-  <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais"
-    style="margin: 10px 0px 0px 30px; height: 40px;">VEJA MAIS</button>
-</div>
-<br>
-<hr>
-<div class="main">
-  <h2>
-    Edital FINEP para Desenvolvimento Tecnológico nº 02/2023
-  </h2>
-  <br>
-  <b><span>Descrição:</span></b>
-  <article>
-    "Iniciativa para fomentar o desenvolvimento de soluções tecnológicas no setor industrial brasileiro."
-  </article>
-  <br>
-  <div class="description">
-    <div>
-      <b><span>Valor do edital: </span></b><span>R$ 45.000,00</span>
-    </div>
-    <br>
-    <div>
-      <b><span>Categoria: </span></b><span>Indústria e Tecnologia</span>
-    </div>
-    <br>
-    <div>
-      <b><span>Validade:</span></b>
-      <span>15/10/2023</span>
-      <b><span style="padding-left: 70px;">UF:</span></b>
-      <span>SP</span>
-    </div>
-  </div>
-
-</div>
-<div class="footer">
-  <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais"
-    style="margin: 10px 0px 0px 30px; height: 40px;">VEJA MAIS</button>
-</div>
-<br>
-<hr>
-<div class="main">
-  <h2>
-    Edital CAPES de Cooperação Acadêmica nº 06/2023
-  </h2>
-  <br>
-  <b><span>Descrição:</span></b>
-  <article>
-    "CAPES lança edital para projetos de cooperação acadêmica entre universidades e institutos de pesquisa."
-  </article>
-  <br>
-  <div class="description">
-    <div>
-      <b><span>Valor do edital: </span></b><span>R$ 20.000,00</span>
-    </div>
-    <br>
-    <div>
-      <b><span>Categoria: </span></b><span>Educação</span>
-    </div>
-    <br>
-    <div>
-      <b><span>Validade:</span></b>
-      <span>30/09/2023</span>
-      <b><span style="padding-left: 70px;">UF:</span></b>
-      <span>MG</span>
-    </div>
-  </div>
-
-</div>
-<div class="footer">
-  <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais"
-    style="margin: 10px 0px 0px 30px; height: 40px;">VEJA MAIS</button>
-</div>
-<br>
-<hr>
-<div class="main">
-  <h2>
-    Edital FAPESP para Projetos de Pesquisa em Inovação nº 08/2023
-  </h2>
-  <br>
-  <b><span>Descrição:</span></b>
-  <article>
-    "Incentivo para projetos inovadores que visem o desenvolvimento científico e tecnológico no Estado de São Paulo."
-  </article>
-  <br>
-  <div class="description">
-    <div>
-      <b><span>Valor do edital: </span></b><span>R$ 50.000,00</span>
-    </div>
-    <br>
-    <div>
-      <b><span>Categoria: </span></b><span>Inovação Científica</span>
-    </div>
-    <br>
-    <div>
-      <b><span>Validade:</span></b>
-      <span>31/08/2023</span>
-      <b><span style="padding-left: 70px;">UF:</span></b>
-      <span>SP</span>
+    <div class="footer">
+      <a [href]="edital.link" target="_blank">
+        <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais">VEJA MAIS</button>
+      </a>
     </div>
   </div>
 </div>
 
-<div class="footer">
-  <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais"
-    style="margin: 10px 0px 0px 30px; height: 40px;">VEJA MAIS</button>
+<!-- Controles de Paginação -->
+<div class="pagination-controls">
+  <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+  <span>Página {{ currentPage }} de {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
 </div>
+
 <div>
-    <div class="receberEmail">
-      <button (click)="openPopup()"mat-raised-button class="consultar-btn recebeEditaisBtn"
-      style="margin: 10px 0px 0px 10px; height: 40px; margin-bottom: 20px;">RECEBER EDITAIS EM PRIMEIRA MÃO</button>
-    </div>
+  <div class="receberEmail">
+    <button (click)="openPopup()" mat-raised-button class="consultar-btn recebeEditaisBtn"
+      >RECEBER EDITAIS EM PRIMEIRA MÃO</button>
+  </div>
 </div>

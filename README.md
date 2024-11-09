@@ -1,4 +1,4 @@
-\\\MEGA-PRIZE///
+\\\SENAC CRAWLERS///
 Autor: Alexandre Costa
 
 PARA A EXECUÇÃO DESTE PROJETO, SIGA AS SEGUINTES INSTRUÇÕES:
@@ -8,7 +8,7 @@ Abra seu terminal
 
 Passo 2: 
 Vá até a pasta src utilizando 'cd', no terminal
-Ex: \projeto_dell\projetoDell> cd src
+Ex: \repos\ProjetoSenacCrawler> cd src
 
 Passo 3:
 Digite 'npm install' no terminal
