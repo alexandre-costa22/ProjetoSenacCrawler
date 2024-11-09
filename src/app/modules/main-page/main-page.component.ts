@@ -32,18 +32,17 @@ import { Edital } from '../../class/itemEditais';
 })
 export class MainPageComponent {
 
-  categorias: string[] = ['Cultura', 'Educação', 'Tecnologia'];
-  bancas: string[] = ['FINEP'];
-  estados: string[] = ['PA', 'RS', 'RO'];
+  // categorias: string[] = ['Cultura', 'Educação', 'Tecnologia'];
+  bancas: string[] = ['Todas','FINEP', 'Fundect', 'FAPESC', 'FAPERGS', 'MP']; 
+  // estados: string[] = ['PA', 'RS', 'RO'];
 
-  // Valores selecionados para os selects
-  selectedBanca: string = '';
-  selectedCategoria: string = '';
-  selectedEstado: string = '';
+  selectedBanca: string = ''; 
+  // selectedCategoria: string = '';
+  // selectedEstado: string = '';
 
-  editais: Edital[] = []; // Array para armazenar os editais
-  itemsPerPage = 4; // Itens por página
-  currentPage = 1; // Página atual
+  editais: Edital[] = []; 
+  itemsPerPage = 10; 
+  currentPage = 1; 
 
   constructor(private popupService: PopupService) {}
 
@@ -53,10 +52,8 @@ export class MainPageComponent {
 
   async fetchEditais(): Promise<void> {
     try {
-      const response = await fetch('https://senac-crawlers.onrender.com/api/editais/'); // URL da sua API
+      const response = await fetch('https://senac-crawlers.onrender.com/api/editais/'); 
       const data = await response.json();
-
-      // Mapeia cada item JSON para uma instância da classe Edital
       this.editais = data.map((item: any) => new Edital(item));
     } catch (error) {
       console.error('Erro ao buscar os editais:', error);
@@ -64,40 +61,46 @@ export class MainPageComponent {
   }
 
   ngOnInit(): void {
-    // Chama fetchEditais ao iniciar o componente para carregar os dados
     this.fetchEditais();
   }
 
-  // Método para obter os itens da página atual
   get paginatedEditais(): Edital[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    return this.editais.slice(startIndex, endIndex);
+    return this.filteredEditais.slice(startIndex, endIndex);
   }
 
-  // Número total de páginas
   get totalPages(): number {
-    return Math.ceil(this.editais.length / this.itemsPerPage);
+    return Math.ceil(this.filteredEditais.length / this.itemsPerPage);
   }
 
-  // Navegar para a próxima página
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
     }
   }
 
-  // Navegar para a página anterior
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
     }
   }
 
-  // Ir para uma página específica
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
     }
   }
+
+  get filteredEditais(): Edital[] {
+    if (this.selectedBanca && this.selectedBanca !== 'Todas') {
+      return this.editais.filter((edital) =>
+        edital.nome_banca.toLowerCase().includes(this.selectedBanca.toLowerCase())
+      );
+    } else if (this.selectedBanca === 'Todas') {
+      return this.editais;  // Retorna todos os editais quando 'Todas' é selecionada
+    }
+    return this.editais;  // Caso não haja filtro, retorna todos
+  }
+  
 }

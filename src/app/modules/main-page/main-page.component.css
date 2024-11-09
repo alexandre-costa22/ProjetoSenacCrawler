@@ -172,5 +172,8 @@ article{
   
   .pagination-controls span {
     font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   

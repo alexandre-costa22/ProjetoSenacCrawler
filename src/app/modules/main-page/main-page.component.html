@@ -25,9 +25,12 @@
         <mat-option *ngFor="let banca of bancas" [value]="banca">{{banca}}</mat-option>
       </mat-select>
     </mat-form-field>
+
     <mat-form-field class="no-padding" appearance="fill" style="flex: 2;">
-      <input matInput placeholder="Buscar por nome do projeto, banca ou região." class="search-input">
+      <mat-label>Filtrar por nome da banca</mat-label>
+      <input matInput placeholder="Digite o nome da banca">
     </mat-form-field>
+
     <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn"
       style="margin: 10px 0px 0px 10px; height: 40px;">CONSULTAR</button>
   </div>
@@ -46,11 +49,11 @@
       <div>
         <b><span>Banca:</span></b><span>{{ edital.nome_banca }}</span>
       </div>
-      <br>
+      <!-- <br>
       <div>
         <b><span>Valor do edital: </span></b><span>R$ {{ edital.valor }}</span>
-      </div>
-      <br>
+      </div> 
+      <br>-->
       <div>
         <b><span>Validade:</span></b>
         <span>{{ edital.vencimento | date: 'dd/MM/yyyy' }}</span>
@@ -65,7 +68,6 @@
   </div>
 </div>
 
-<!-- Controles de Paginação -->
 <div class="pagination-controls">
   <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
   <span>Página {{ currentPage }} de {{ totalPages }}</span>
@@ -75,6 +77,6 @@
 <div>
   <div class="receberEmail">
     <button (click)="openPopup()" mat-raised-button class="consultar-btn recebeEditaisBtn"
-      >RECEBER EDITAIS EM PRIMEIRA MÃO</button>
+      style="margin: 10px 0px 0px 10px; height: 40px; margin-bottom: 20px;">RECEBER EDITAIS EM PRIMEIRA MÃO</button>
   </div>
 </div>
