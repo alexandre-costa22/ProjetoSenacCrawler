@@ -26,7 +26,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field class="no-padding" appearance="fill" style="flex: 1; margin-right: 10px;">
+    <!-- <mat-form-field class="no-padding" appearance="fill" style="flex: 1; margin-right: 10px;">
       <mat-select [(ngModel)]="selectedCategoria">
         <mat-option value="" disabled>CATEGORIA</mat-option>
         <mat-option *ngFor="let categoria of categorias" [value]="categoria">{{categoria}}</mat-option>
@@ -38,7 +38,7 @@
         <mat-option value="" disabled>ESTADO</mat-option>
         <mat-option *ngFor="let estado of estados" [value]="estado">{{estado}}</mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
 
     <mat-form-field class="no-padding" appearance="fill" style="flex: 2;">
       <input matInput placeholder="Buscar por nome do projeto, banca ou região." class="search-input">
@@ -48,24 +48,20 @@
   </div>
 </div>
 <br>
+
 <div class="main">
   <h2>
-    Lorem Ipsum
+    Edital de Apoio à Inovação FAPESC nº 01/2023
   </h2>
   <br>
   <b><span>Descrição:</span></b>
   <article>
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-    ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "Apoio a projetos inovadores no Estado de Santa Catarina, promovendo o desenvolvimento tecnológico local."
   </article>
   <br>
   <div class="description">
     <div>
-      <b><span>Valor do edital: </span></b><span>R$ 20.000,00</span>
+      <b><span>Valor do edital: </span></b><span>R$ 25.000,00</span>
     </div>
     <br>
     <div>
@@ -74,13 +70,149 @@
     <br>
     <div>
       <b><span>Validade:</span></b>
-      <span>16/11/XXXX</span>
+      <span>01/12/2023</span>
       <b><span style="padding-left: 70px;">UF:</span></b>
-      <span>RS</span>
+      <span>SC</span>
     </div>
   </div>
 
 </div>
+<div class="footer">
+  <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais"
+    style="margin: 10px 0px 0px 30px; height: 40px;">VEJA MAIS</button>
+</div>
+<br>
+<hr>
+<div class="main">
+  <h2>
+    Edital de Fomento à Pesquisa CNPq nº 05/2023
+  </h2>
+  <br>
+  <b><span>Descrição:</span></b>
+  <article>
+    "O CNPq convida pesquisadores a submeterem propostas para projetos que contribuam com avanços científicos no Brasil."
+  </article>
+  <br>
+  <div class="description">
+    <div>
+      <b><span>Valor do edital: </span></b><span>R$ 30.000,00</span>
+    </div>
+    <br>
+    <div>
+      <b><span>Categoria: </span></b><span>Pesquisa Científica</span>
+    </div>
+    <br>
+    <div>
+      <b><span>Validade:</span></b>
+      <span>30/11/2023</span>
+      <b><span style="padding-left: 70px;">UF:</span></b>
+      <span>DF</span>
+    </div>
+  </div>
+
+</div>
+<div class="footer">
+  <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais"
+    style="margin: 10px 0px 0px 30px; height: 40px;">VEJA MAIS</button>
+</div>
+<br>
+<hr>
+<div class="main">
+  <h2>
+    Edital FINEP para Desenvolvimento Tecnológico nº 02/2023
+  </h2>
+  <br>
+  <b><span>Descrição:</span></b>
+  <article>
+    "Iniciativa para fomentar o desenvolvimento de soluções tecnológicas no setor industrial brasileiro."
+  </article>
+  <br>
+  <div class="description">
+    <div>
+      <b><span>Valor do edital: </span></b><span>R$ 45.000,00</span>
+    </div>
+    <br>
+    <div>
+      <b><span>Categoria: </span></b><span>Indústria e Tecnologia</span>
+    </div>
+    <br>
+    <div>
+      <b><span>Validade:</span></b>
+      <span>15/10/2023</span>
+      <b><span style="padding-left: 70px;">UF:</span></b>
+      <span>SP</span>
+    </div>
+  </div>
+
+</div>
+<div class="footer">
+  <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais"
+    style="margin: 10px 0px 0px 30px; height: 40px;">VEJA MAIS</button>
+</div>
+<br>
+<hr>
+<div class="main">
+  <h2>
+    Edital CAPES de Cooperação Acadêmica nº 06/2023
+  </h2>
+  <br>
+  <b><span>Descrição:</span></b>
+  <article>
+    "CAPES lança edital para projetos de cooperação acadêmica entre universidades e institutos de pesquisa."
+  </article>
+  <br>
+  <div class="description">
+    <div>
+      <b><span>Valor do edital: </span></b><span>R$ 20.000,00</span>
+    </div>
+    <br>
+    <div>
+      <b><span>Categoria: </span></b><span>Educação</span>
+    </div>
+    <br>
+    <div>
+      <b><span>Validade:</span></b>
+      <span>30/09/2023</span>
+      <b><span style="padding-left: 70px;">UF:</span></b>
+      <span>MG</span>
+    </div>
+  </div>
+
+</div>
+<div class="footer">
+  <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais"
+    style="margin: 10px 0px 0px 30px; height: 40px;">VEJA MAIS</button>
+</div>
+<br>
+<hr>
+<div class="main">
+  <h2>
+    Edital FAPESP para Projetos de Pesquisa em Inovação nº 08/2023
+  </h2>
+  <br>
+  <b><span>Descrição:</span></b>
+  <article>
+    "Incentivo para projetos inovadores que visem o desenvolvimento científico e tecnológico no Estado de São Paulo."
+  </article>
+  <br>
+  <div class="description">
+    <div>
+      <b><span>Valor do edital: </span></b><span>R$ 50.000,00</span>
+    </div>
+    <br>
+    <div>
+      <b><span>Categoria: </span></b><span>Inovação Científica</span>
+    </div>
+    <br>
+    <div>
+      <b><span>Validade:</span></b>
+      <span>31/08/2023</span>
+      <b><span style="padding-left: 70px;">UF:</span></b>
+      <span>SP</span>
+    </div>
+  </div>
+</div>
+
 <div class="footer">
   <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais"
     style="margin: 10px 0px 0px 30px; height: 40px;">VEJA MAIS</button>
