@@ -35,7 +35,7 @@
       style="margin: 10px 0px 0px 10px; height: 40px;">CONSULTAR</button>
   </div>
 </div>
-<br>
+<br><br>
 <div class="aqui">
   <div *ngFor="let edital of paginatedEditais" class="main">
     <h2>{{ edital.titulo }}</h2>
@@ -67,13 +67,11 @@
     </div>
   </div>
 </div>
-
 <div class="pagination-controls">
-  <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+  <button mat-stroked-button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
   <span>Página {{ currentPage }} de {{ totalPages }}</span>
-  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
+  <button mat-stroked-button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
 </div>
-
 <div>
   <div class="receberEmail">
     <button (click)="openPopup()" mat-raised-button class="consultar-btn recebeEditaisBtn"

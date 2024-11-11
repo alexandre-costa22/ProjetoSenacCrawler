@@ -28,3 +28,8 @@ html, body {
   align-items: center; /* Ajusta o alinhamento dos itens */
   height: 0px; /* Ajusta a altura para ocupar o mínimo possível */
 }
+
+.mat-mdc-outlined-button:hover{
+  background-color: #2A8168 !important;
+  color: white !important;
+}

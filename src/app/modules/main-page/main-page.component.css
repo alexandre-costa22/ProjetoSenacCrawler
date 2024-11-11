@@ -52,8 +52,8 @@ a {
 }
 
 .vejaMais{
-    background-color: #2A8168;
-    color: #ffffff;
+    background-color: #2A8168 !important;
+    color: #ffffff !important;
     cursor: pointer;
     flex: 1 1 100%; /* Item ocupa 100% da linha */
     margin: 10px 0px 0px 30px; 
@@ -62,13 +62,6 @@ a {
     border: none;
 }
 
-.vejaMais:active{
-    background-color: #17473a !important;
-}
-
-.vejaMais:focus-within{
-    background-color: #17473a !important;
-}
 
 .receberEmail{
     display: flex !important;
@@ -85,11 +78,12 @@ a{
 
 .main{
     padding: 20px;
-    border-style: solid;
-    border-color: #000000;
-    border-width: 0px 0px 1px 0px;
+    border-width: 0px;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 3px rgba(0,0,0,0.30), 0 1px 8px rgba(0,0,0,0.22);
 }
 
 h2, article {
@@ -116,8 +110,8 @@ article{
 
 .opcoes {
     display: flex;
-    flex-direction: column; /* Alinha os elementos em coluna */
-    align-items: flex-start; /* Alinha os itens à esquerda */
+    flex-direction: column; 
+    align-items: flex-start; 
     margin-bottom: -1.25em;
 }
 

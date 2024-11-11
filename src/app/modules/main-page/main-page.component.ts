@@ -11,6 +11,10 @@ import { EmailPopupComponent } from '../register-user/email-popup/email-popup.co
 import { PopupService } from '../../services/email-popup.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Edital } from '../../class/itemEditais';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @Component({
   selector: 'app-main-page',
@@ -26,6 +30,9 @@ import { Edital } from '../../class/itemEditais';
     EmailPopupComponent,
     NgIf,
     MatDialogModule,
+    MatButtonModule, 
+    MatDividerModule, 
+    MatIconModule
   ],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
