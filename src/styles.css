@@ -33,3 +33,13 @@ html, body {
   background-color: #2A8168 !important;
   color: white !important;
 }
+
+mat-progress-bar {
+  background-color: #2A8168 !important;  /* Sua cor personalizada */
+
+}
+
+.mat-mdc-progress-bar{
+  --mdc-linear-progress-active-indicator-color: #104133 !important
+}
+

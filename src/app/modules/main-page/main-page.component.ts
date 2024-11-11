@@ -14,6 +14,7 @@ import { Edital } from '../../class/itemEditais';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @Component({
@@ -32,7 +33,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatDialogModule,
     MatButtonModule, 
     MatDividerModule, 
-    MatIconModule
+    MatIconModule,
+    MatProgressBarModule
   ],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
@@ -50,6 +52,7 @@ export class MainPageComponent {
   editais: Edital[] = []; 
   itemsPerPage = 10; 
   currentPage = 1; 
+  loading: boolean = false;  
 
   constructor(private popupService: PopupService) {}
 
@@ -58,12 +61,15 @@ export class MainPageComponent {
   }
 
   async fetchEditais(): Promise<void> {
+    this.loading = true;
     try {
       const response = await fetch('https://senac-crawlers.onrender.com/api/editais/'); 
       const data = await response.json();
       this.editais = data.map((item: any) => new Edital(item));
     } catch (error) {
       console.error('Erro ao buscar os editais:', error);
+    } finally {
+      this.loading = false;  
     }
   }
 

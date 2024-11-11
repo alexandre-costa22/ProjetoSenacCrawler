@@ -36,6 +36,8 @@
   </div>
 </div>
 <br><br>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<br><br>
 <div class="aqui">
   <div *ngFor="let edital of paginatedEditais" class="main">
     <h2>{{ edital.titulo }}</h2>
