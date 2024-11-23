@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="header d-flex justify-content-end align-items-center bg-dark p-2">
+    <div class="icones">
+      <span>Contatos: </span>
+      <a href="https://www.facebook.com" target="_blank" class="text-white mx-1">
+        <img src="assets/icons/facebookIcon.png" alt="Facebook" class="icon-img">
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="text-white mx-1">
+        <img src="assets/icons/instagramIcon.png" alt="Instagram" class="icon-img">
+      </a>
+      <a href="https://wa.me/seunumerodetelefone" target="_blank" class="text-white mx-1">
+        <img src="assets/icons/whatsappIcon.png" alt="WhatsApp" class="icon-img">
+      </a>
+    </div>
+  </div>
+</div>
+<div class="titulo text-center">
+  <h1>SENAC CRAWLERS</h1>
+</div>
+<br><br>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<br><br>
+<div class="container">
+  <form (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="username">Usuário:</label>
+      <input id="username" type="text" [(ngModel)]="username" name="username" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input id="password" type="password" [(ngModel)]="password" name="password" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <div *ngIf="error" class="text-danger">{{ error }}</div>
+  </form>
+</div>
+
