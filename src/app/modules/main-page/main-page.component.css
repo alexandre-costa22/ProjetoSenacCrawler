@@ -170,4 +170,10 @@ article{
     justify-content: center;
     align-items: center;
   }
+
+  .logoEmpresas{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+  }
   

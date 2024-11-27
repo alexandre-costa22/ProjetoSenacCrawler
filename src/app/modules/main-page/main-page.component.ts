@@ -42,7 +42,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 export class MainPageComponent {
 
   // categorias: string[] = ['Cultura', 'Educação', 'Tecnologia'];
-  bancas: string[] = ['Todas','FINEP', 'Fundect', 'FAPESC', 'FAPERGS', 'MP']; 
+  bancas: string[] = ['Todas','FINEP', 'Fundect', 'FAPESC', 'FAPERGS']; 
   // estados: string[] = ['PA', 'RS', 'RO'];
 
   selectedBanca: string = ''; 
@@ -90,6 +90,21 @@ export class MainPageComponent {
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
+    }
+  }
+
+  retornaImagem(banca:string){
+    let bancaUpper = banca.toUpperCase()
+    if (bancaUpper == "FAPERGS"){
+      return "assets/icons/fapergs.png"
+    } else if (bancaUpper == "FAPESC") {
+      return "assets/icons/FAPESC.png"
+    } else if (bancaUpper == "FINEP"){
+      return "assets/icons/finep.png"
+    } else if (bancaUpper == "FUNDECT"){
+      return "assets/icons/fundect.png"
+    } else {
+      return ""
     }
   }
 

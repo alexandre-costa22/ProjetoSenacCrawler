@@ -40,32 +40,37 @@
 <br><br>
 <div class="aqui">
   <div *ngFor="let edital of paginatedEditais" class="main">
-    <h2>{{ edital.titulo }}</h2>
-    <br>
-    <b><span>Descrição:</span></b>
-    <article>
-      "{{ edital.descricao }}"
-    </article>
-    <br>
-    <div class="description">
-      <div>
-        <b><span>Banca:</span></b><span>{{ edital.nome_banca }}</span>
+    <div>
+      <h2>{{ edital.titulo }}</h2>
+      <br>
+      <b><span>Descrição:</span></b>
+      <article>
+        "{{ edital.descricao }}"
+      </article>
+      <br>
+      <div class="description">
+        <div>
+          <b><span>Banca:</span></b><span>{{ edital.nome_banca }}</span>
+        </div>
+        <!-- <br>
+        <div>
+          <b><span>Valor do edital: </span></b><span>R$ {{ edital.valor }}</span>
+        </div> 
+        <br>-->
+        <div>
+          <b><span>Validade:</span></b>
+          <span>{{ edital.vencimento | date: 'dd/MM/yyyy' }}</span>
+        </div>
       </div>
-      <!-- <br>
-      <div>
-        <b><span>Valor do edital: </span></b><span>R$ {{ edital.valor }}</span>
-      </div> 
-      <br>-->
-      <div>
-        <b><span>Validade:</span></b>
-        <span>{{ edital.vencimento | date: 'dd/MM/yyyy' }}</span>
+      <br>
+      <div class="footer">
+        <a [href]="edital.link" target="_blank">
+          <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais">VEJA MAIS</button>
+        </a>
       </div>
     </div>
-    <br>
-    <div class="footer">
-      <a [href]="edital.link" target="_blank">
-        <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn vejaMais">VEJA MAIS</button>
-      </a>
+    <div class="logoEmpresas">
+      <img class="logoEmpresas" [src]="retornaImagem(edital.nome_banca)" [alt]="edital.nome_banca">
     </div>
   </div>
 </div>
