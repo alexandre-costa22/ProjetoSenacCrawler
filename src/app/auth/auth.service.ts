@@ -32,7 +32,11 @@ export class AuthService {
       })
     );
   }
-  
+
+  register(username: string, password: string, role: string = 'user'): Observable<any> {
+    const registerUrl = 'http://localhost:3000/register'; // Rota de registro no backend
+    return this.http.post<any>(registerUrl, { username, password, role });
+  }
 
   logout(): void {
     localStorage.removeItem('currentUser');

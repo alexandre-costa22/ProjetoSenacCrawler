@@ -61,5 +61,10 @@ export class LoginComponent {
       }
     );
   }
+
+  // Método para redirecionar para a tela de cadastro
+  navigateToRegister(): void {
+    this.router.navigate(['/register']);
+  }
   
 }

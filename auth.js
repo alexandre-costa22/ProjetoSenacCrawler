@@ -32,6 +32,50 @@ server.post('/login', (req, res) => {
 
 // Middleware de autenticação
 server.use((req, res, next) => {
+  // Permitir acesso a rotas públicas
+  if (req.path === "/register" || req.path === "/login") {
+    return next();
+  }
+
+  // Verificar token para rotas protegidas
+  if (req.headers.authorization) {
+    const token = req.headers.authorization.split(" ")[1];
+    try {
+      jwt.verify(token, SECRET_KEY);
+      next();
+    } catch (err) {
+      res.status(401).json({ message: "Token inválido" });
+    }
+  } else {
+    res.status(401).json({ message: "Token não fornecido" });
+  }
+});
+
+// Rota de registro
+server.post("/register", (req, res) => {
+  const { username, password, role } = req.body;
+
+  // Verificar se o usuário já existe
+  if (users.find((u) => u.username === username)) {
+    return res.status(400).json({ message: "Usuário já existe" });
+  }
+
+  // Criar novo usuário
+  const newUser = {
+    id: users.length + 1,
+    username,
+    password,
+    role: role || "user",
+  };
+
+  users.push(newUser);
+  res.status(201).json({ message: "Usuário registrado com sucesso" });
+});
+
+
+
+// Middleware de autenticação
+server.use((req, res, next) => {
   if (req.headers.authorization) {
     const token = req.headers.authorization.split(' ')[1];
     try {
@@ -44,6 +88,7 @@ server.use((req, res, next) => {
     res.status(401).json({ message: 'Token não fornecido' });
   }
 });
+
 
 // Usar o roteador para manipular as rotas do db.json
 server.use(router);

@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="header d-flex justify-content-end align-items-center bg-dark p-2">
+    <div class="icones">
+      <span>Contatos: </span>
+      <a href="https://www.facebook.com" target="_blank" class="text-white mx-1">
+        <img src="assets/icons/facebookIcon.png" alt="Facebook" class="icon-img">
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="text-white mx-1">
+        <img src="assets/icons/instagramIcon.png" alt="Instagram" class="icon-img">
+      </a>
+      <a href="https://wa.me/seunumerodetelefone" target="_blank" class="text-white mx-1">
+        <img src="assets/icons/whatsappIcon.png" alt="WhatsApp" class="icon-img">
+      </a>
+    </div>
+  </div>
+</div>
+<div class="titulo text-center">
+  <h1>SENAC CRAWLERS</h1>
+</div>
+<br><br>
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<br><br>
+<h1>Cadastro de Usuário</h1>
+<form (ngSubmit)="register()">
+  <div>
+    <label for="username">Usuário:</label>
+    <input
+      type="text"
+      id="username"
+      [(ngModel)]="username"
+      name="username"
+      required
+    />
+  </div>
+  <div>
+    <label for="password">Senha:</label>
+    <input
+      type="password"
+      id="password"
+      [(ngModel)]="password"
+      name="password"
+      required
+    />
+  </div>
+  <div>
+    <label for="role">Papel:</label>
+    <select id="role" [(ngModel)]="role" name="role">
+      <option value="user">Usuário</option>
+      <option value="admin">Administrador</option>
+    </select>
+  </div>
+  <button type="submit">Cadastrar</button>
+</form>
+
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+
