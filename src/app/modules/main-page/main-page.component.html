@@ -9,7 +9,7 @@
 
     <mat-form-field class="no-padding" appearance="fill" style="flex: 2;">
       <mat-label>Filtrar por nome da banca</mat-label>
-      <input matInput placeholder="Digite o nome da banca">
+      <input matInput placeholder="Digite o nome da banca" [(ngModel)]="filtrarResultados">
     </mat-form-field>
 
     <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn"
@@ -33,11 +33,7 @@
         <div>
           <b><span>Banca:</span></b><span>{{ edital.nome_banca }}</span>
         </div>
-        <!-- <br>
-        <div>
-          <b><span>Valor do edital: </span></b><span>R$ {{ edital.valor }}</span>
-        </div> 
-        <br>-->
+
         <div>
           <b><span>Validade:</span></b>
           <span>{{ edital.vencimento | date: 'dd/MM/yyyy' }}</span>

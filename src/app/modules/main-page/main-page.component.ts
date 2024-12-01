@@ -2,22 +2,15 @@ import { Component } from '@angular/core';
 import { PopupService } from '../../services/email-popup.service';
 import { Edital } from '../../class/itemEditais';
 
-
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent {
-
-  // categorias: string[] = ['Cultura', 'Educação', 'Tecnologia'];
   bancas: string[] = ['Todas','FINEP', 'Fundect', 'FAPESC', 'FAPERGS']; 
-  // estados: string[] = ['PA', 'RS', 'RO'];
-
   selectedBanca: string = ''; 
-  // selectedCategoria: string = '';
-  // selectedEstado: string = '';
-
+  filtrarResultados: string = '';  // Variável para armazenar o texto do input de filtro
   editais: Edital[] = []; 
   itemsPerPage = 10; 
   currentPage = 1; 
@@ -90,14 +83,25 @@ export class MainPageComponent {
   }
 
   get filteredEditais(): Edital[] {
+    let filtered = this.editais;
+
+    // Filtra pela banca
     if (this.selectedBanca && this.selectedBanca !== 'Todas') {
-      return this.editais.filter((edital) =>
+      filtered = filtered.filter((edital) =>
         edital.nome_banca.toLowerCase().includes(this.selectedBanca.toLowerCase())
       );
-    } else if (this.selectedBanca === 'Todas') {
-      return this.editais;  // Retorna todos os editais quando 'Todas' é selecionada
     }
-    return this.editais;  // Caso não haja filtro, retorna todos
+
+    // Filtra pelo texto de busca (no título, descrição ou nome da banca)
+    if (this.filtrarResultados) {
+      const query = this.filtrarResultados.toLowerCase();
+      filtered = filtered.filter((edital) =>
+        edital.titulo.toLowerCase().includes(query) ||
+        edital.descricao.toLowerCase().includes(query) ||
+        edital.nome_banca.toLowerCase().includes(query)
+      );
+    }
+
+    return filtered;
   }
-  
 }
