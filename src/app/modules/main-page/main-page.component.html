@@ -1,19 +1,23 @@
 <div class="opcoes">
   <div class="filters-container d-flex justify-content-between">
     <mat-form-field class="no-padding" appearance="fill" style="flex: 1; margin-right: 10px;">
-      <mat-select [(ngModel)]="selectedBanca">
+      <!-- <mat-select [(ngModel)]="selectedBanca">
         <mat-option value="" disabled>BANCA</mat-option>
         <mat-option *ngFor="let banca of bancas" [value]="banca">{{banca}}</mat-option>
+      </mat-select> -->
+      <mat-select [(ngModel)]="selectedBanca">
+        <mat-option *ngFor="let banca of bancas" [value]="banca.nome_banca">{{ banca.nome_banca }}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="no-padding" appearance="fill" style="flex: 2;">
-      <mat-label>Filtrar por nome da banca</mat-label>
+      <mat-label>Filtrar por nome da banca, descrição ou título</mat-label>
       <input matInput placeholder="Digite o nome da banca" [(ngModel)]="filtrarResultados">
     </mat-form-field>
-
-    <button style="margin-bottom: 20px;" mat-raised-button class="consultar-btn"
-      style="margin: 10px 0px 0px 10px; height: 40px;">CONSULTAR</button>
+    <div class="filters-container">
+      <a routerLink="/register-banca" routerLinkActive="active" >Registrar Banca</a>
+      <a routerLink="/register-editais" routerLinkActive="active" >Registrar Editais</a>
+    </div>
   </div>
 </div>
 <br><br>
@@ -36,7 +40,7 @@
 
         <div>
           <b><span>Validade:</span></b>
-          <span>{{ edital.vencimento | date: 'dd/MM/yyyy' }}</span>
+          <span>{{ edital.vencimento }}</span>
         </div>
       </div>
       <br>

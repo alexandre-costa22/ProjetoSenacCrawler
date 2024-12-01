@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { PopupService } from '../../services/email-popup.service';
 import { Edital } from '../../class/itemEditais';
+import { EditaisService } from '../../services/editais.service';
+import { firstValueFrom } from 'rxjs';
+import { BancasService } from '../../services/bancas.service';
+import { Banca } from '../../class/itemBancas';
 
 @Component({
   selector: 'app-main-page',
@@ -8,16 +12,22 @@ import { Edital } from '../../class/itemEditais';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent {
-  bancas: string[] = ['Todas','FINEP', 'Fundect', 'FAPESC', 'FAPERGS']; 
-  selectedBanca: string = ''; 
+  bancas: any[] = [];
+  selectedBanca: string = '';
   filtrarResultados: string = '';  // Variável para armazenar o texto do input de filtro
-  editais: Edital[] = []; 
-  itemsPerPage = 10; 
-  currentPage = 1; 
-  loading: boolean = false;  
+  editais: Edital[] = [];
+  itemsPerPage = 10;
+  currentPage = 1;
+  loading: boolean = false;
 
-  constructor(private popupService: PopupService) {}
+  constructor(private popupService: PopupService,
+    private editaisService: EditaisService,
+    private bancasService: BancasService) { }
 
+  ngOnInit() {
+    this.fetchEditais();
+    this.fetchBancas()
+  }
   openPopup() {
     this.popupService.openPopup();
   }
@@ -25,18 +35,22 @@ export class MainPageComponent {
   async fetchEditais(): Promise<void> {
     this.loading = true;
     try {
-      const response = await fetch('https://senac-crawlers.onrender.com/api/editais/'); 
-      const data = await response.json();
-      this.editais = data.map((item: any) => new Edital(item));
+      const dados = await firstValueFrom(this.editaisService.getEditais());
+      this.editais = dados.map((item: any) => new Edital(item));
     } catch (error) {
       console.error('Erro ao buscar os editais:', error);
     } finally {
-      this.loading = false;  
+      this.loading = false;
     }
   }
 
-  ngOnInit(): void {
-    this.fetchEditais();
+  async fetchBancas(): Promise<void> {
+    try {
+      const dados = await firstValueFrom(this.bancasService.getBancas());
+      this.bancas = [...this.bancas, ...dados.map((item: any) => new Banca(item))];
+    } catch (error) {
+      console.error('Erro ao buscar as bancas:', error);
+    }
   }
 
   get paginatedEditais(): Edital[] {
@@ -55,15 +69,15 @@ export class MainPageComponent {
     }
   }
 
-  retornaImagem(banca:string){
+  retornaImagem(banca: string) {
     let bancaUpper = banca.toUpperCase()
-    if (bancaUpper == "FAPERGS"){
+    if (bancaUpper == "FAPERGS") {
       return "assets/icons/fapergs.png"
     } else if (bancaUpper == "FAPESC") {
       return "assets/icons/FAPESC.png"
-    } else if (bancaUpper == "FINEP"){
+    } else if (bancaUpper == "FINEP") {
       return "assets/icons/finep.png"
-    } else if (bancaUpper == "FUNDECT"){
+    } else if (bancaUpper == "FUNDECT") {
       return "assets/icons/fundect.png"
     } else {
       return ""

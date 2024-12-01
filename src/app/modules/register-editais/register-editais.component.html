@@ -1,0 +1,17 @@
+<div>
+    <h2>Gerenciar Editais</h2>
+    <form (ngSubmit)="addEdital()">
+      <input [(ngModel)]="newEdital.titulo" name="titulo" placeholder="Título" required />
+      <input [(ngModel)]="newEdital.descricao" name="descricao" placeholder="Descrição" required />
+      <select [(ngModel)]="newEdital.nome_banca" name="nome_banca" required>
+        <option *ngFor="let banca of bancas" [value]="banca.nome_banca">{{ banca.nome_banca }}</option>
+      </select>
+      <input [(ngModel)]="newEdital.valor" name="valor" placeholder="valor" required />
+      <input [(ngModel)]="newEdital.link" name="link" placeholder="Link" required />
+      <input [(ngModel)]="newEdital.vencimento" name="vencimento" placeholder="Data de Vencimento" required />
+      <input [(ngModel)]="newEdital.data_publicacao" name="data_publicacao" placeholder="Data de Publicação" required />
+      <button type="submit">Adicionar</button>
+      <a routerLink="/main" routerLinkActive="active" >Voltar</a>
+    </form>
+  </div>
+  

@@ -24,6 +24,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { environment } from '../environments/environments';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './modules/register/register.component';
+import { RegisterBancaComponent } from './modules/register-banca/register-banca.component';
+import { RegisterEditaisComponent } from './modules/register-editais/register-editais.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { RegisterComponent } from './modules/register/register.component';
     LoginComponent,
     MainPageComponent,
     EmailPopupComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterBancaComponent,
+    RegisterEditaisComponent
   ],
   imports: [
     BrowserAnimationsModule,
