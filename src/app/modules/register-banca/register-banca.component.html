@@ -3,7 +3,7 @@
     <body>
         <div class="page">
             <form>
-                <div class="formLogin" *ngIf="gatilhoAtualiza">
+                <div class="formLogin" *ngIf="!gatilhoAtualiza">
                     <h1>Adiconar Banca</h1>
                     <label for="nome_banca">Nome da Banca:</label>
                     <input type="text" placeholder="Nome da Banca" autofocus="true" id="nome_banca"
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="formLogin" *ngIf="!gatilhoAtualiza">
+                <div class="formLogin" *ngIf="gatilhoAtualiza">
                     <h1>Editar Banca</h1>
                     <label for="nome_banca">Nome da Banca:</label>
                     <input type="text" [(ngModel)]="newBanca.nome_banca" name="nome_banca" required />
