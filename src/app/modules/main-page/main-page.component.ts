@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PopupService } from '../../services/email-popup.service';
 import { Edital } from '../../class/itemEditais';
 import { EditaisService } from '../../services/editais.service';
 import { firstValueFrom } from 'rxjs';
@@ -20,16 +19,13 @@ export class MainPageComponent {
   currentPage = 1;
   loading: boolean = false;
 
-  constructor(private popupService: PopupService,
+  constructor(
     private editaisService: EditaisService,
     private bancasService: BancasService) { }
 
   ngOnInit() {
     this.fetchEditais();
     this.fetchBancas()
-  }
-  openPopup() {
-    this.popupService.openPopup();
   }
 
   async fetchEditais(): Promise<void> {

@@ -15,6 +15,7 @@ export class RegisterBancaComponent implements OnInit {
 
   constructor(private bancasService: BancasService) {}
 
+
   ngOnInit(): void {
     this.gatilhoAtualiza = false;
     this.idAtual = "";

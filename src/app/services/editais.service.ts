@@ -17,15 +17,15 @@ export class EditaisService {
   }
 
   // Adicionar um novo edital
-  addEdital(edital: { titulo: string; descricao: string; nome_banca: string }) {
+  addEdital(edital: { titulo: string; descricao: string; nome_banca: string, valor: string, link: string, vencimento: string, data_publicacao: string }) {
     const editalCollection = collection(this.firestore, this.collectionPath);
     return addDoc(editalCollection, edital);
   }
 
   // Atualizar um edital existente
-  updateEdital(id: string, data: Partial<{ titulo: string; descricao: string; nome_banca: string }>) {
+  updateEdital(id: string, edital: { titulo: string; descricao: string; nome_banca: string, valor: string, link: string, vencimento: string, data_publicacao: string }) {
     const editalDoc = doc(this.firestore, `${this.collectionPath}/${id}`);
-    return updateDoc(editalDoc, data);
+    return updateDoc(editalDoc, edital);
   }
 
   // Deletar um edital

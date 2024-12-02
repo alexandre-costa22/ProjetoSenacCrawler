@@ -6,6 +6,8 @@
         <mat-option *ngFor="let banca of bancas" [value]="banca">{{banca}}</mat-option>
       </mat-select> -->
       <mat-select [(ngModel)]="selectedBanca">
+        <mat-option value="" disabled>BANCA</mat-option>
+        <mat-option value="Todas">Todas</mat-option>
         <mat-option *ngFor="let banca of bancas" [value]="banca.nome_banca">{{ banca.nome_banca }}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -15,32 +17,39 @@
       <input matInput placeholder="Digite o nome da banca" [(ngModel)]="filtrarResultados">
     </mat-form-field>
     <div class="filters-container">
-      <a routerLink="/register-banca" routerLinkActive="active" >Registrar Banca</a>
-      <a routerLink="/register-editais" routerLinkActive="active" >Registrar Editais</a>
+      <button routerLink="/register-banca" mat-raised-button class="consultar-btn vejaMais" routerLinkActive="active" >Gerenciar Bancas</button>
+      <button routerLink="/register-editais" mat-raised-button class="consultar-btn vejaMais" routerLinkActive="active" >Gerenciar Editais</button>
     </div>
   </div>
 </div>
 <br><br>
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <br><br>
-<div class="aqui">
+<div class="containerEdital">
   <div *ngFor="let edital of paginatedEditais" class="main">
     <div class="infos">
       <h2>{{ edital.titulo }}</h2>
       <br>
       <b><span>Descrição:</span></b>
       <article>
-        "{{ edital.descricao }}"
+        {{ edital.descricao }}
       </article>
       <br>
       <div class="description">
         <div>
           <b><span>Banca:</span></b><span>{{ edital.nome_banca }}</span>
         </div>
-
+        <div>
+          <b><span>Data de Publicação:</span></b>
+          <span>{{ edital.data_publicacao | date : 'dd/MM/yyyy'  }}</span>
+        </div>
         <div>
           <b><span>Validade:</span></b>
-          <span>{{ edital.vencimento }}</span>
+          <span>{{ edital.vencimento | date : 'dd/MM/yyyy' }}</span>
+        </div>
+        <div>
+          <b><span>Valor:</span></b>
+          <span>{{ edital.valor }}</span>
         </div>
       </div>
       <br>
@@ -60,9 +69,5 @@
   <span>Página {{ currentPage }} de {{ totalPages }}</span>
   <button mat-stroked-button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
 </div>
-<div>
-  <div class="receberEmail">
-    <button (click)="openPopup()" mat-raised-button class="consultar-btn recebeEditaisBtn"
-      style="margin: 10px 0px 0px 10px; height: 40px; margin-bottom: 40px;">RECEBER EDITAIS EM PRIMEIRA MÃO</button>
-  </div>
-</div>
+<br>
+

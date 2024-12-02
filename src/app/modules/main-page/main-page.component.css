@@ -88,6 +88,14 @@ a{
     box-shadow: 0 10px 3px rgba(0,0,0,0.30), 0 1px 8px rgba(0,0,0,0.22);
 }
 
+.containerEdital{
+    display: flex;
+    width: auto;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 h2, article {
   margin: 10px;
   min-width: 200px;
@@ -175,9 +183,7 @@ article{
 
   .logoEmpresas{
     margin-top: 20px;
-    margin-left: 50px;
     width: 400px;
     height: 200px;
     border-radius: 5px;
   }
-  

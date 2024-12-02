@@ -14,7 +14,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { EmailPopupComponent } from './modules/register-user/email-popup/email-popup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -33,7 +32,6 @@ import { RegisterEditaisComponent } from './modules/register-editais/register-ed
     AppComponent,
     LoginComponent,
     MainPageComponent,
-    EmailPopupComponent,
     RegisterComponent,
     RegisterBancaComponent,
     RegisterEditaisComponent
