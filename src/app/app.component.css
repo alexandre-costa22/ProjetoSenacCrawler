@@ -57,8 +57,9 @@ a {
     background-color: #2A8168 !important;
     color: #ffffff !important;
     cursor: pointer;
-    border-radius: 1px;
     border: none;
+    padding: 5px;
+    margin-left: 5px;
 }
 
 .receberEmail{

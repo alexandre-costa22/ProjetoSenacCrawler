@@ -28,6 +28,7 @@ body {
     border-radius: 7px;
     padding: 100px;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+    width: 50vh !important;
     gap: 5px
 }
 
@@ -50,6 +51,17 @@ body {
 }
 
 .formLogin input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+}
+
+.formLogin select{
     padding: 15px;
     font-size: 14px;
     border: 1px solid #ccc;

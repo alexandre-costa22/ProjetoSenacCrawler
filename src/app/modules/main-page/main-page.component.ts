@@ -13,7 +13,7 @@ import { Banca } from '../../class/itemBancas';
 export class MainPageComponent {
   bancas: any[] = [];
   selectedBanca: string = '';
-  filtrarResultados: string = '';  // Variável para armazenar o texto do input de filtro
+  filtrarResultados: string = '';  
   editais: Edital[] = [];
   itemsPerPage = 10;
   currentPage = 1;

@@ -13,8 +13,8 @@
     </mat-form-field>
 
     <mat-form-field class="no-padding" appearance="fill" style="flex: 2;">
-      <mat-label>Filtrar por nome da banca, descrição ou título</mat-label>
-      <input matInput placeholder="Digite o nome da banca" [(ngModel)]="filtrarResultados">
+      <mat-label for="filtrarResultados">Filtrar por nome da banca, descrição ou título</mat-label>
+        <input name="filtrarResultados" id="filtrarResultados" matInput placeholder="Digite o nome da banca" [(ngModel)]="filtrarResultados">
     </mat-form-field>
     <div class="filters-container">
       <button routerLink="/register-banca" mat-raised-button class="consultar-btn vejaMais" routerLinkActive="active" >Gerenciar Bancas</button>
@@ -49,7 +49,7 @@
         </div>
         <div>
           <b><span>Valor:</span></b>
-          <span>{{ edital.valor }}</span>
+          <span>{{ edital.valor | currency:'BRL':'symbol'}}</span>
         </div>
       </div>
       <br>

@@ -43,3 +43,6 @@ mat-progress-bar {
   --mdc-linear-progress-active-indicator-color: #104133 !important
 }
 
+.mat-mdc-form-field-infix{
+  width: 240px !important;
+}

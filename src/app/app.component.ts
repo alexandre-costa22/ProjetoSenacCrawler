@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { Auth, onAuthStateChanged, signOut, User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
@@ -13,31 +13,23 @@ export class AppComponent implements OnInit {
   currentUser: User | null = null;
   bancas: string[] = ['Todas','FINEP', 'Fundect', 'FAPESC', 'FAPERGS']; 
   router: Router = inject(Router);
+  private inactivityTimer: any;
+  private inactivityTimeout = 5 * 60 * 1000; 
 
   constructor(private auth: Auth) {}
 
   ngOnInit() {
-    // Escuta as mudanças no estado de autenticação
     onAuthStateChanged(this.auth, (user) => {
       if (user) {
         this.isAuth = true;
         this.currentUser = user;
-        // Salva informações básicas no localStorage (opcional)
         localStorage.setItem('credencial', JSON.stringify({ email: user.email, uid: user.uid }));
+        this.startInactivityTimer();
       } else {
         this.isAuth = false;
-/*************  ✨ Codeium Command ⭐  *************/
-  /**
-   * Realiza o logout do usuário.
-   * 
-   * Se o usuário estiver logado, remove a credencial do localStorage e altera o estado da variável
-   * this.isAuth para false. Se o usuário não estiver logado, exibe uma mensagem de erro.
-   * 
-   * @returns undefined
-   */
-/******  0bdebbe7-5381-459f-b8ad-71a92ed5452a  *******/        
         this.currentUser = null;
         localStorage.removeItem('credencial');
+        this.clearInactivityTimer();
       }
     });
   }
@@ -54,5 +46,25 @@ export class AppComponent implements OnInit {
       });
   }
 
+  private startInactivityTimer() {
+    this.clearInactivityTimer(); 
+    this.inactivityTimer = setTimeout(() => {
+      this.realizarLogout();
+    }, this.inactivityTimeout);
+  }
 
+  private clearInactivityTimer() {
+    if (this.inactivityTimer) {
+      clearTimeout(this.inactivityTimer);
+      this.inactivityTimer = null;
+    }
+  }
+
+  @HostListener('document:mousemove')
+  @HostListener('document:keydown')
+  resetInactivityTimer() {
+    if (this.isAuth) {
+      this.startInactivityTimer();
+    }
+  }
 }

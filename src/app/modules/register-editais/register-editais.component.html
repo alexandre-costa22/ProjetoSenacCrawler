@@ -50,27 +50,27 @@
                 <div class="formLogin" *ngIf="gatilhoAtualiza">
                     <h1>Editar Edital</h1>
                     <label for="titulo">Título:</label>
-                    <input type="text" [(ngModel)]="newEdital.titulo" name="titulo" required />
+                    <input id="titulo" type="text" [(ngModel)]="newEdital.titulo" name="titulo" required />
 
                     <label for="descricao">Descrição:</label>
-                    <input type="text" [(ngModel)]="newEdital.descricao" name="descricao" required />
+                    <input id="descricao" type="text" [(ngModel)]="newEdital.descricao" name="descricao" required />
 
                     <label for="nome_banca">Banca:</label>
-                    <select [(ngModel)]="newEdital.nome_banca" name="nome_banca" required>
+                    <select id="nome_banca" [(ngModel)]="newEdital.nome_banca" name="nome_banca" required>
                         <option *ngFor="let banca of bancas" [value]="banca.nome_banca">{{ banca.nome_banca }}</option>
                     </select>
 
                     <label for="valor">Valor:</label>
-                    <input type="text" [(ngModel)]="newEdital.valor" name="valor" required />
+                    <input id="valor" type="text" [(ngModel)]="newEdital.valor" name="valor" required />
 
                     <label for="link">Link:</label>
-                    <input type="text" [(ngModel)]="newEdital.link" name="link" required />
+                    <input id="link" type="text" [(ngModel)]="newEdital.link" name="link" required />
 
                     <label for="vencimento">Data de Vencimento:</label>
-                    <input type="date" [(ngModel)]="newEdital.vencimento" name="vencimento" required />
+                    <input id="vencimento" type="date" [(ngModel)]="newEdital.vencimento" name="vencimento" required />
 
                     <label for="data_publicacao">Data de Publicação:</label>
-                    <input type="date" [(ngModel)]="newEdital.data_publicacao" name="data_publicacao" required />
+                    <input id="data_publicacao" type="date" [(ngModel)]="newEdital.data_publicacao" name="data_publicacao" required />
 
                     <button (click)="updateEdital(this.idAtual)" class="btn">Atualizar Edital</button>
                     <button (click)="gatilhoAtualizacao()" type="button" class="btn">Voltar</button>

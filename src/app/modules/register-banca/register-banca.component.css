@@ -27,6 +27,7 @@ body {
     background-color: #fff;
     border-radius: 7px;
     padding: 100px;
+    width: 50vh !important;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
     gap: 5px
 }
