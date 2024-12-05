@@ -19,10 +19,8 @@ export class RegisterEditaisComponent implements OnInit {
   constructor(private editaisService: EditaisService, private bancasService: BancasService) {}
 
   ngOnInit(): void {
-    // Carregar bancas ao inicializar o componente
     this.fetchBancas();
 
-    // Carregar editais
     this.editaisService.getEditais().subscribe((data) => {
       this.editais = data;
     });
@@ -56,7 +54,6 @@ export class RegisterEditaisComponent implements OnInit {
   }
 
   updateEdital(id: string): void{
-        // Verificar se os campos obrigatórios estão preenchidos
         if (this.newEdital.titulo.trim() && this.newEdital.descricao && this.newEdital.nome_banca.trim() && this.newEdital.valor && 
         this.newEdital.link && this.newEdital.vencimento && this.newEdital.data_publicacao ) {
           this.editaisService.updateEdital(id, {
@@ -69,7 +66,6 @@ export class RegisterEditaisComponent implements OnInit {
             data_publicacao: this.newEdital.data_publicacao
           }).then(() => {
             console.log('Banca atualizada com sucesso');
-            // Limpar o formulário
             this.newEdital = { titulo: '', descricao: '', nome_banca: '', valor: '', link: '', vencimento: '',  data_publicacao: ''};
           }).catch((err) => {
             console.error('Erro ao atualizar banca:', err);

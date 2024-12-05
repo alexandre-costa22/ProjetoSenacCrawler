@@ -49,16 +49,6 @@ export class MainPageComponent {
     }
   }
 
-  get paginatedEditais(): Edital[] {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    return this.filteredEditais.slice(startIndex, endIndex);
-  }
-
-  get totalPages(): number {
-    return Math.ceil(this.filteredEditais.length / this.itemsPerPage);
-  }
-
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
@@ -92,26 +82,13 @@ export class MainPageComponent {
     }
   }
 
-  get filteredEditais(): Edital[] {
-    let filtered = this.editais;
-
-    // Filtra pela banca
-    if (this.selectedBanca && this.selectedBanca !== 'Todas') {
-      filtered = filtered.filter((edital) =>
-        edital.nome_banca.toLowerCase().includes(this.selectedBanca.toLowerCase())
-      );
-    }
-
-    // Filtra pelo texto de busca (no título, descrição ou nome da banca)
-    if (this.filtrarResultados) {
-      const query = this.filtrarResultados.toLowerCase();
-      filtered = filtered.filter((edital) =>
-        edital.titulo.toLowerCase().includes(query) ||
-        edital.descricao.toLowerCase().includes(query) ||
-        edital.nome_banca.toLowerCase().includes(query)
-      );
-    }
-
-    return filtered;
+  get paginatedEditais(): Edital[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.editais.slice(startIndex, endIndex);
+  }
+  
+  get totalPages(): number {
+    return Math.ceil(this.paginatedEditais.length / this.itemsPerPage);
   }
 }

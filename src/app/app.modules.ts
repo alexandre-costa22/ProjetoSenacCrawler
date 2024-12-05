@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './modules/register/register.component';
 import { RegisterBancaComponent } from './modules/register-banca/register-banca.component';
 import { RegisterEditaisComponent } from './modules/register-editais/register-editais.component';
+import { FilterEditaisPipe } from './pipe/filter.pipe';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { RegisterEditaisComponent } from './modules/register-editais/register-ed
     MainPageComponent,
     RegisterComponent,
     RegisterBancaComponent,
-    RegisterEditaisComponent
+    RegisterEditaisComponent,
+    FilterEditaisPipe
   ],
   imports: [
     BrowserAnimationsModule,
@@ -57,7 +59,7 @@ import { RegisterEditaisComponent } from './modules/register-editais/register-ed
     MatProgressSpinnerModule,
   ],
   providers: [
-    provideFirebaseApp(() => initializeApp(environment.firebase)), // Usa environment.firebase
+    provideFirebaseApp(() => initializeApp(environment.firebase)), 
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
   ],

@@ -15,7 +15,6 @@ export class LoginComponent {
     const unsubscribe = onAuthStateChanged(this.auth, (user) => {
       subscriber.next(user);
     });
-    // Retorna a função de cleanup para unsubscribe
     return () => unsubscribe();
   });
 
@@ -24,7 +23,7 @@ export class LoginComponent {
   router: Router = inject(Router);
   erroLogin: boolean = false;
   mensagemErro: string = '';
-  carregando: boolean = false; // Indicador de carregamento
+  carregando: boolean = false; 
 
   constructor() {}
 

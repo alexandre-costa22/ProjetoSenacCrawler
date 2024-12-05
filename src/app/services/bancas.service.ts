@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class BancasService {
   constructor(private firestore: Firestore) {}
 
-  // Métodos para acessar o Firestore
   private getBancasCollection() {
     return collection(this.firestore, 'bancas');
   }

@@ -30,15 +30,13 @@ export class RegisterBancaComponent implements OnInit {
 
 
   addBanca(): void {
-    // Verificar se os campos obrigatórios estão preenchidos
     if (this.newBanca.nome_banca.trim() && this.newBanca.img_logo && this.newBanca.data_criacao.trim()) {
       this.bancasService.addBanca({
         nome_banca: this.newBanca.nome_banca,
-        img_logo: this.newBanca.img_logo,  // Enviar como File
+        img_logo: this.newBanca.img_logo,
         data_criacao: this.newBanca.data_criacao
       }).then(() => {
         console.log('Banca adicionada com sucesso');
-        // Limpar o formulário
         this.newBanca = { nome_banca: '', img_logo: null, data_criacao: '' };
       }).catch((err) => {
         console.error('Erro ao adicionar banca:', err);
@@ -59,15 +57,13 @@ export class RegisterBancaComponent implements OnInit {
   }
   
   updateBanca(id: string): void {
-    // Verificar se os campos obrigatórios estão preenchidos
     if (this.newBanca.nome_banca.trim() && this.newBanca.img_logo && this.newBanca.data_criacao.trim()) {
       this.bancasService.updateBanca(id, {
         nome_banca: this.newBanca.nome_banca,
-        img_logo: this.newBanca.img_logo,  // Enviar como File
+        img_logo: this.newBanca.img_logo, 
         data_criacao: this.newBanca.data_criacao
       }).then(() => {
         console.log('Banca atualizada com sucesso');
-        // Limpar o formulário
         this.newBanca = { nome_banca: '', img_logo: null, data_criacao: '' };
       }).catch((err) => {
         console.error('Erro ao atualizar banca:', err);

@@ -20,13 +20,13 @@ html, body {
 }
 
 .mat-mdc-form-field-subscript-wrapper {
-  margin: 0;  /* Remove qualquer margem */
-  padding: 0; /* Remove qualquer padding */
+  margin: 0; 
+  padding: 0;
 }
 
 .mat-mdc-form-field-bottom-align {
-  align-items: center; /* Ajusta o alinhamento dos itens */
-  height: 0px; /* Ajusta a altura para ocupar o mínimo possível */
+  align-items: center; 
+  height: 0px;
 }
 
 .mat-mdc-outlined-button:hover{
@@ -35,7 +35,7 @@ html, body {
 }
 
 mat-progress-bar {
-  background-color: #2A8168 !important;  /* Sua cor personalizada */
+  background-color: #2A8168 !important; 
 
 }
 
@@ -44,5 +44,5 @@ mat-progress-bar {
 }
 
 .mat-mdc-form-field-infix{
-  width: 240px !important;
+  flex: none;
 }

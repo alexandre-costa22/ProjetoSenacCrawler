@@ -6,29 +6,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EditaisService {
-  private collectionPath = 'editais'; // Nome da coleção no Firestore
+  private collectionPath = 'editais';
 
   constructor(private firestore: Firestore) {}
 
-  // Obter todos os editais
   getEditais(): Observable<any[]> {
     const editalCollection = collection(this.firestore, this.collectionPath);
     return collectionData(editalCollection, { idField: 'id' });
   }
 
-  // Adicionar um novo edital
   addEdital(edital: { titulo: string; descricao: string; nome_banca: string, valor: string, link: string, vencimento: string, data_publicacao: string }) {
     const editalCollection = collection(this.firestore, this.collectionPath);
     return addDoc(editalCollection, edital);
   }
 
-  // Atualizar um edital existente
   updateEdital(id: string, edital: { titulo: string; descricao: string; nome_banca: string, valor: string, link: string, vencimento: string, data_publicacao: string }) {
     const editalDoc = doc(this.firestore, `${this.collectionPath}/${id}`);
     return updateDoc(editalDoc, edital);
   }
 
-  // Deletar um edital
   deleteEdital(id: string) {
     const editalDoc = doc(this.firestore, `${this.collectionPath}/${id}`);
     return deleteDoc(editalDoc);
