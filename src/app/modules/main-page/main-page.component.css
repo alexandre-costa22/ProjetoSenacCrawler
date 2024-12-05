@@ -149,10 +149,6 @@ select{
     margin-right: 15px;
 }
 
-article{
-    width: 300px;
-}
-
 .opcoes {
     display: flex;
     flex-direction: column; 

@@ -26,6 +26,7 @@ import { RegisterComponent } from './modules/register/register.component';
 import { RegisterBancaComponent } from './modules/register-banca/register-banca.component';
 import { RegisterEditaisComponent } from './modules/register-editais/register-editais.component';
 import { FilterEditaisPipe } from './pipe/filter.pipe';
+import { PaginatePipe } from './pipe/paginate.pipe';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { FilterEditaisPipe } from './pipe/filter.pipe';
     RegisterComponent,
     RegisterBancaComponent,
     RegisterEditaisComponent,
-    FilterEditaisPipe
+    FilterEditaisPipe,
+    PaginatePipe
   ],
   imports: [
     BrowserAnimationsModule,

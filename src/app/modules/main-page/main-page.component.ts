@@ -82,13 +82,31 @@ export class MainPageComponent {
     }
   }
 
+  get filteredEditais(): Edital[] {
+    return this.editais.filter(edital =>
+      (!this.selectedBanca || edital.nome_banca === this.selectedBanca) &&
+      (!this.filtrarResultados || 
+        edital.titulo.toLowerCase().includes(this.filtrarResultados.toLowerCase()) ||
+        edital.descricao.toLowerCase().includes(this.filtrarResultados.toLowerCase()))
+    );
+  }
+
   get paginatedEditais(): Edital[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    return this.editais.slice(startIndex, endIndex);
+    return this.filteredEditais.slice(startIndex, endIndex);
   }
   
   get totalPages(): number {
-    return Math.ceil(this.paginatedEditais.length / this.itemsPerPage);
+    const filteredCount = this.editais.filter(edital =>
+      (!this.selectedBanca || this.selectedBanca === 'Todas' || edital.nome_banca === this.selectedBanca) &&
+      (!this.filtrarResultados || 
+        edital.titulo.toLowerCase().includes(this.filtrarResultados.toLowerCase()) ||
+        edital.descricao.toLowerCase().includes(this.filtrarResultados.toLowerCase()))
+    ).length;
+    return Math.ceil(filteredCount / this.itemsPerPage);
   }
+  
+  
+  
 }
