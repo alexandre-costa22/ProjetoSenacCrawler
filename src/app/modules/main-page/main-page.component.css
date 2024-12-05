@@ -1,3 +1,47 @@
+/* Configuração padrão para telas maiores */
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.containerEdital{
+    width: auto;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.header {
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+
+.titulo {
+    font-size: 32px;
+    padding: 10px;
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.logoEmpresas {
+    width: 500px;
+    height: 300px;
+}
+
+
+
+
 .header{
     background-color: #000000;
     color: #ffffff;
@@ -6,7 +50,6 @@
     font-size: 13px;
     line-height: 15.73px;
     text-align: right;
-    align-items: center; 
     border: solid 3px #000000 ;
 }
 
@@ -14,7 +57,6 @@
     width: 18px;
     height: 17px;
     padding-left: 2px;
-    align-items: center;
 
 }
 
@@ -89,7 +131,6 @@ a{
 }
 
 .containerEdital{
-    display: flex;
     width: auto;
     align-content: center;
     flex-wrap: wrap;
@@ -104,8 +145,6 @@ h2, article {
 
 span{
   margin: 10px;
-  min-width: 200px;
-  flex: 1 1 100%; 
 }
 
 
@@ -115,7 +154,7 @@ select{
 }
 
 article{
-    width: 800px;
+    width: 300px;
 }
 
 .opcoes {
@@ -187,3 +226,156 @@ article{
     height: 200px;
     border-radius: 5px;
   }
+
+
+  /* Configuração padrão para desktops */
+.container-fluid {
+    padding: 0;
+}
+
+.header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.titulo {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.opcoes {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.filters-container {
+    flex-direction: column;
+    width: 100%;
+}
+
+.filters-container mat-form-field {
+    width: 100%;
+}
+
+.main {
+    align-items: center;
+    padding: 20px;
+}
+
+.infos {
+    width: 100%;
+    max-width: 800px;
+}
+
+.logoEmpresas {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Ajustes para telas pequenas (até 768px) */
+@media (max-width: 768px) {
+    .header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .titulo {
+        font-size: 1.5rem;
+        padding: 10px 0;
+    }
+
+    .filters-container {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .filters-container mat-form-field {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .main {
+        padding: 10px;
+        box-shadow: none;
+    }
+
+    .infos {
+        width: 90%;
+    }
+
+    .logoEmpresas {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .pagination-controls {
+        flex-direction: column;
+    }
+}
+
+/* Ajustes para telas muito pequenas (até 480px) */
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 1.25rem;
+        padding: 5px;
+    }
+
+    .filters-container mat-form-field {
+        width: 100%;
+    }
+
+    .main {
+        padding: 10px;
+        box-shadow: 0 10px 3px rgba(0, 0, 0, 0.30), 0 1px 8px rgba(0, 0, 0, 0.22);
+    }
+
+    .infos {
+        width: 100%;
+    }
+
+    .logoEmpresas {
+        width: 100%;
+        height: auto;
+    }
+
+    .pagination-controls button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+
+@media (min-width: 1440px) {
+    .containerEdital{
+        display: grid;
+        width: auto;
+        align-content: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+
+    .titulo {
+        font-size: 36px;
+    }
+
+    .logoEmpresas {
+        width: 600px;
+        height: 400px;
+    }
+
+    .main {
+        width: 2000px;
+        justify-content: center;
+        padding: 40px;
+    }
+
+    .pagination-controls button {
+        padding: 10px 25px;
+        font-size: 18px; /* Texto maior para maior conforto */
+    }
+}

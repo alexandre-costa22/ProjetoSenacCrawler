@@ -76,6 +76,7 @@ export class MainPageComponent {
 
   ngOnInit(): void {
     this.fetchEditais();
+    this.openPopup();
   }
 
   get paginatedEditais(): Edital[] {
