@@ -8,6 +8,7 @@ html, body {
   overflow: visible !important;
   position: relative;
   margin: auto !important;
+  font-family: 'Koulen', sans-serif !important;
 }
 
 :host ::ng-deep .mat-form-field-wrapper{

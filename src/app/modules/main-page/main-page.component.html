@@ -1,5 +1,7 @@
 <div class="container-fluid">
-  <div class="header d-flex justify-content-end align-items-center bg-dark p-2">
+  <div style="display: flex;" class="header d-flex justify-content-end align-items-center bg-dark p-2">
+    <button (click)="openPopup()" mat-raised-button>
+      RECEBER EDITAIS EM PRIMEIRA MÃO</button>
     <div class="icones">
       <span>Contatos: </span>
       <a href="https://www.facebook.com" target="_blank" class="text-white mx-1">
@@ -14,8 +16,11 @@
     </div>
   </div>
 </div>
-<div class="titulo text-center">
+<div class="titulo text-center" style="display: flex; justify-content: center;">
   <h1 class="tipoTitulo">SENAC CRAWLERS</h1>
+  <img style="width: 150px; height: 150px; margin-left: -30px;" src="https://media.canva.com/v2/image-resize/format:PNG/height:447/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2FthePE%2FMAGP1xthePE%2F1%2Fp.png/watermark:F/width:559?csig=AAAAAAAAAAAAAAAAAAAAAG-Jc5Vi1qOAa3a5qdtMByfH3YtIkBR15E7rZbi7qDDR&exp=1733960375&osig=AAAAAAAAAAAAAAAAAAAAAKzNYGOZTqNqVWrYZt63mF67-uaSnPqS7XD33Ukkqg9v&signer=media-rpc&x-canva-quality=screen">
+</div>
+<div class="receberEmail">
 </div>
 <div class="opcoes">
   <div class="filters-container d-flex justify-content-between">
@@ -82,6 +87,7 @@
   <span>Página {{ currentPage }} de {{ totalPages }}</span>
   <button mat-stroked-button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
 </div>
+<br>
 <!-- <div>
   <div class="receberEmail">
     <button (click)="openPopup()" mat-raised-button class="consultar-btn recebeEditaisBtn"
