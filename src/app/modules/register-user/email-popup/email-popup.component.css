@@ -39,6 +39,19 @@ button:hover{
   text-align: center; /* Centraliza o texto digitado */
 }
 
+/* Ajustes para telas pequenas (até 768px) */
+@media (max-width: 412px) {
+  .grid button{
+    max-width: fit-content;
+    max-height: fit-content;
+  }
+
+  .example-full-width{
+    max-width: fit-content;
+  }
+  
+}
+
 .grid button{
   width: 412px;
   height: 63px;
