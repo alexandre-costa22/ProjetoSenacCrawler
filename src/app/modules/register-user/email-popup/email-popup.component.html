@@ -1,25 +1,28 @@
 <div class="popup-backdrop">
-  <div class="popup-content" >
-    <div >
+  <div class="popup-content">
+    <div>
       <span class="close botaoFechar" mat-button (click)="closeDialog()">&times;</span>
-      <h2>Para receber avisos de editais recentes em primeira mão, cadastre-se agora.</h2>
-      <form>
-        <div class="grid">
+      <div *ngIf="!gatilhoConfirma">
+        <h2>Para receber avisos de editais recentes em primeira mão, cadastre-se agora.</h2>
+      </div>
+      <mat-progress-bar *ngIf="gatilhoSpinner" mode="indeterminate"></mat-progress-bar>
+      <form #emailForm="ngForm" action="https://formsubmit.co/alecodetuc2018@gmail.com" method="POST" (submit)="onFormSubmit($event)">
+        <div class="grid" *ngIf="!gatilhoConfirma">
           <mat-form-field class="example-full-width">
-            <input matInput type="text" class="input-centered" placeholder="Nome completo" id="nome" name="nome" required>
+            <input matInput type="text" class="input-centered" placeholder="Nome completo" id="nome" name="nome" required ngModel>
           </mat-form-field>
-          <br><br>
+          <br /><br />
           <mat-form-field class="example-full-width">
-            <input matInput class="input-centered" placeholder="Email" type="email" id="email" name="email" required>
+            <input matInput class="input-centered" placeholder="Email" type="email" id="email" name="email" required ngModel>
           </mat-form-field>
-          <br><br>
-          <button (click)="cadastra()" class="cadastro" type="submit">CADASTRAR</button>
-          <br><br>
-          <button (click)="closeDialog()" type="submit">CANCELAR</button>
+          <input type="hidden" name="_next" value="http://localhost:4200/obrigado">
+          <br /><br />
+          <button class="cadastro" type="submit" [disabled]="gatilhoSpinner || !emailForm.valid">CADASTRAR</button>
+          <br /><br />
+          <button (click)="closeDialog()" type="button">CANCELAR</button>
         </div>
-        <div class="sucesso">
-          <mat-spinner *ngIf="gatilhoSpinner"></mat-spinner>
-          <h2 *ngIf="gatilhoConfirma">Cadastro realizado!</h2>
+        <div *ngIf="gatilhoConfirma" class="sucesso">
+          <h2>Cadastro realizado!</h2>
         </div>
       </form>
     </div>

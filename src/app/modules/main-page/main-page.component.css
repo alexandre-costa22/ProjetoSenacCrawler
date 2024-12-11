@@ -74,9 +74,11 @@ a {
 .titulo, .titulo h1 {
     background-color: #2A8168;
     margin: 0px;
-    font-family: 'Koulen';
     color: #ffffff;
     font-size: 28px; 
+    font-family: 'Koulen', sans-serif !important;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
 }
 
 .titulo {
@@ -154,7 +156,7 @@ select{
 }
 
 article{
-    width: 300px;
+    width: 600px;
 }
 
 .opcoes {
@@ -282,6 +284,9 @@ article{
         text-align: center;
     }
 
+    article{
+        width: 300px;
+    }
     .titulo {
         font-size: 1.5rem;
         padding: 10px 0;
@@ -379,3 +384,4 @@ article{
         font-size: 18px; /* Texto maior para maior conforto */
     }
 }
+

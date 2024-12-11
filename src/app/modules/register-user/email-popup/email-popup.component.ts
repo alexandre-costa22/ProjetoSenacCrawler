@@ -1,35 +1,41 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MainPageComponent } from '../../main-page/main-page.component';
 import { MatDialogRef } from '@angular/material/dialog';
-
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-email-popup',
   standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatProgressBarModule
+  ],
   templateUrl: './email-popup.component.html',
-  imports: [CommonModule, FormsModule, MainPageComponent, MatInputModule, MatFormFieldModule, MatProgressSpinnerModule],
-  styleUrls: ['./email-popup.component.css']
+  styleUrls: ['./email-popup.component.css'],
 })
-
 export class EmailPopupComponent {
-  constructor(public dialogRef: MatDialogRef<EmailPopupComponent>) {}
-
-  public gatilhoSpinner : boolean = false;
+  public gatilhoSpinner: boolean = false;
   public gatilhoConfirma: boolean = false;
 
-  // Método para fechar o diálogo
+  constructor(public dialogRef: MatDialogRef<EmailPopupComponent>) {}
+
   closeDialog(): void {
     this.dialogRef.close();
   }
 
-  cadastra(){
+  onFormSubmit(event: Event): void {
+    event.preventDefault(); // Previne envio padrão
     this.gatilhoSpinner = true;
-  }
 
+    setTimeout(() => {
+      this.gatilhoSpinner = false;
+      this.gatilhoConfirma = true;
+    }, 3000); // Simula o tempo de envio
+  }
 }
