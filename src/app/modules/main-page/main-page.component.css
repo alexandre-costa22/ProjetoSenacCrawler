@@ -61,12 +61,42 @@ a {
     display: inline-flex;
   }
 
-.icones{
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .left-content,
+  .icones {
     display: flex;
     align-items: center;
-    justify-content: flex-end; 
-
-}
+  }
+  
+  .mat-raised-button {
+    white-space: nowrap;
+  }
+  
+  .icon-img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite adaptar melhor em telas pequenas */
+  }
+  
+  .pagination-controls button {
+    white-space: nowrap;
+  }
+  
+  .pagination-controls span {
+    flex-shrink: 0;
+  }
+  
 
 .titulo, .titulo h1 {
     background-color: #2A8168;
