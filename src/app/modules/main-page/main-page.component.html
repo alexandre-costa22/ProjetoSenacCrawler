@@ -1,9 +1,14 @@
 <div class="container-fluid">
-  <div style="display: flex;" class="header d-flex justify-content-end align-items-center bg-dark p-2">
-    <button (click)="openPopup()" mat-raised-button>
-      RECEBER EDITAIS EM PRIMEIRA MÃO</button>
-    <div class="icones">
-      <span>Contatos: </span>
+  <div class="header d-flex justify-content-between align-items-center bg-dark p-2">
+    
+    <div class="left-content">
+      <button (click)="openPopup()" mat-raised-button>
+        CADASTRE-SE
+      </button>
+    </div>
+
+    <div class="icones d-flex text-white">
+      <span class="me-2">Contatos:</span>
       <a href="https://www.facebook.com" target="_blank" class="text-white mx-1">
         <img src="assets/icons/facebookIcon.png" alt="Facebook" class="icon-img">
       </a>
@@ -14,11 +19,14 @@
         <img src="assets/icons/whatsappIcon.png" alt="WhatsApp" class="icon-img">
       </a>
     </div>
+
   </div>
 </div>
+
+
 <div class="titulo text-center" style="display: flex; justify-content: center;">
   <h1 class="tipoTitulo">SENAC CRAWLERS</h1>
-  <img style="width: 150px; height: 150px; margin-left: -30px;" src="https://png.pngtree.com/png-vector/20220908/ourmid/pngtree-spider-logo-vector-element-web-design-vector-png-image_39152260.png">
+  <img style="width: 150px; height: 130px; margin-left: -30px;" src="https://png.pngtree.com/png-vector/20220908/ourmid/pngtree-spider-logo-vector-element-web-design-vector-png-image_39152260.png">
 </div>
 <div class="receberEmail">
 </div>
@@ -65,10 +73,6 @@
           <b><span>Validade:</span></b>
           <span>{{ edital.vencimento | date : 'dd/MM/yyyy' }}</span>
         </div>
-        <!-- <div>
-          <b><span>Valor:</span></b>
-          <span>{{ edital.valor | currency:'BRL':'symbol'}}</span>
-        </div> -->
       </div>
       <br>
       <div class="footer">
@@ -82,15 +86,16 @@
     </div>
   </div>
 </div>
-<div class="pagination-controls">
-  <button mat-stroked-button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
-  <span>Página {{ currentPage }} de {{ totalPages }}</span>
-  <button mat-stroked-button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
+<div class="pagination-controls d-flex justify-content-between align-items-center mt-3">
+  <button mat-stroked-button (click)="previousPage()" [disabled]="currentPage === 1">
+    Anterior
+  </button>
+
+  <span class="mx-3">Página {{ currentPage }} de {{ totalPages }}</span>
+
+  <button mat-stroked-button (click)="nextPage()" [disabled]="currentPage === totalPages">
+    Próxima
+  </button>
 </div>
+
 <br>
-<!-- <div>
-  <div class="receberEmail">
-    <button (click)="openPopup()" mat-raised-button class="consultar-btn recebeEditaisBtn"
-      style="margin: 10px 0px 0px 10px; height: 40px; margin-bottom: 40px;">RECEBER EDITAIS EM PRIMEIRA MÃO</button>
-  </div>
-</div> -->
