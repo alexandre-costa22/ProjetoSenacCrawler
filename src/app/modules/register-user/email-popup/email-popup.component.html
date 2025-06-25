@@ -17,9 +17,10 @@
           </mat-form-field>
           <input type="hidden" name="_next" value="http://localhost:4200/obrigado">
           <br /><br />
-          <button class="cadastro" type="submit" [disabled]="gatilhoSpinner || !emailForm.valid">CADASTRAR</button>
-          <br /><br />
-          <button (click)="closeDialog()" type="button">CANCELAR</button>
+          <div style="display: flex; gap: 10px;">
+            <button style="border: none;" class="cadastro" type="submit" [disabled]="gatilhoSpinner || !emailForm.valid" mat-raised-button>Cadastrar</button>
+            <button style="border: none;"  (click)="closeDialog()" type="button" mat-raised-button>Cancelar</button>
+          </div>
         </div>
         <div *ngIf="gatilhoConfirma" class="sucesso">
           <h2>Cadastro realizado!</h2>
